@@ -1,86 +1,90 @@
 [
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-hdpi/ic_launcher_foreground.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\drawable_app_icon_source.png.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\drawable\\app_icon_source.png"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-xxhdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/xml_backup_rules.xml.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/xml/backup_rules.xml"
+        "merged": "com.garrettrogers.pltracker.app-debug-75:/xml_file_paths.xml.flat",
+        "source": "com.garrettrogers.pltracker.app-main-77:/xml/file_paths.xml"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-xhdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/xml_data_extraction_rules.xml.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-mdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-mdpi/ic_launcher_foreground.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-xhdpi/ic_launcher_foreground.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.garrettrogers.pltracker.app-debug-75:/drawable_app_icon_source.png.flat",
-        "source": "com.garrettrogers.pltracker.app-main-77:/drawable/app_icon_source.png"
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-hdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-debug-75:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Gary\\.gradle\\daemon\\8.6\\com.garrettrogers.pltracker.app-main-77:\\mipmap-anydpi-v26\\ic_launcher.xml"
     }
 ]

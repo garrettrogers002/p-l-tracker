@@ -33,13 +33,13 @@ public final class AppDatabase_Impl extends AppDatabase {
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(2) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS `trades` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `ticker` TEXT NOT NULL, `entryDate` INTEGER NOT NULL, `expirationDate` INTEGER NOT NULL, `strikePrice` TEXT NOT NULL, `entryOptionPrice` TEXT NOT NULL, `entryStockPrice` TEXT NOT NULL, `quantity` INTEGER NOT NULL, `exitDate` INTEGER, `exitOptionPrice` TEXT, `exitStockPrice` TEXT, `isClosed` INTEGER NOT NULL)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `trades` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `ticker` TEXT NOT NULL, `entryDate` INTEGER NOT NULL, `expirationDate` INTEGER NOT NULL, `strikePrice` TEXT NOT NULL, `entryOptionPrice` TEXT NOT NULL, `entryStockPrice` TEXT NOT NULL, `quantity` INTEGER NOT NULL, `exitDate` INTEGER, `exitOptionPrice` TEXT, `exitStockPrice` TEXT, `optionType` TEXT NOT NULL, `isClosed` INTEGER NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `portfolio_snapshots` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` INTEGER NOT NULL, `totalValue` TEXT NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '288eeae886f93161da0e176be2e758f7')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c14e0a7fadd93aa6513bc78031bd1137')");
       }
 
       @Override
@@ -89,7 +89,7 @@ public final class AppDatabase_Impl extends AppDatabase {
       @NonNull
       public RoomOpenHelper.ValidationResult onValidateSchema(
           @NonNull final SupportSQLiteDatabase db) {
-        final HashMap<String, TableInfo.Column> _columnsTrades = new HashMap<String, TableInfo.Column>(12);
+        final HashMap<String, TableInfo.Column> _columnsTrades = new HashMap<String, TableInfo.Column>(13);
         _columnsTrades.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTrades.put("ticker", new TableInfo.Column("ticker", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTrades.put("entryDate", new TableInfo.Column("entryDate", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -101,6 +101,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         _columnsTrades.put("exitDate", new TableInfo.Column("exitDate", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTrades.put("exitOptionPrice", new TableInfo.Column("exitOptionPrice", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTrades.put("exitStockPrice", new TableInfo.Column("exitStockPrice", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsTrades.put("optionType", new TableInfo.Column("optionType", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTrades.put("isClosed", new TableInfo.Column("isClosed", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysTrades = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesTrades = new HashSet<TableInfo.Index>(0);
@@ -126,7 +127,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "288eeae886f93161da0e176be2e758f7", "bf73f6de7c3d141b02c6f9cf6ddaf3aa");
+    }, "c14e0a7fadd93aa6513bc78031bd1137", "5e97c7045f3981fa970148770409ec1e");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;

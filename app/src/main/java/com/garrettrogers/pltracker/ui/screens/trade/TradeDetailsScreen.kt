@@ -27,7 +27,6 @@ import java.util.Locale
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TradeDetailsScreen(
-    tradeId: Long,
     viewModel: CloseTradeViewModel = hiltViewModel(), // Reusing CloseTradeViewModel for getById logic
     onNavigateBack: () -> Unit
 ) {

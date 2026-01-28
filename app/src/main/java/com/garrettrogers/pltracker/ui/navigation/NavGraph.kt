@@ -46,7 +46,6 @@ fun PLTrackerNavHost(
             val tradeId = backStackEntry.arguments?.getLong("tradeId")
             if (tradeId != null) {
                 CloseTradeScreen(
-                    tradeId = tradeId,
                     onNavigateBack = { navController.popBackStack() }
                 )
             }
@@ -72,7 +71,6 @@ fun PLTrackerNavHost(
             val tradeId = backStackEntry.arguments?.getLong("tradeId")
             if (tradeId != null) {
                 TradeDetailsScreen(
-                    tradeId = tradeId,
                     onNavigateBack = { navController.popBackStack() }
                 )
             }

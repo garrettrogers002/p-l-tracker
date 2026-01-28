@@ -46,7 +46,7 @@ public final class TradeDao_Impl implements TradeDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `trades` (`id`,`ticker`,`entryDate`,`expirationDate`,`strikePrice`,`entryOptionPrice`,`entryStockPrice`,`quantity`,`exitDate`,`exitOptionPrice`,`exitStockPrice`,`isClosed`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `trades` (`id`,`ticker`,`entryDate`,`expirationDate`,`strikePrice`,`entryOptionPrice`,`entryStockPrice`,`quantity`,`exitDate`,`exitOptionPrice`,`exitStockPrice`,`optionType`,`isClosed`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -75,8 +75,9 @@ public final class TradeDao_Impl implements TradeDao {
         } else {
           statement.bindString(11, entity.getExitStockPrice());
         }
+        statement.bindString(12, entity.getOptionType());
         final int _tmp = entity.isClosed() ? 1 : 0;
-        statement.bindLong(12, _tmp);
+        statement.bindLong(13, _tmp);
       }
     };
     this.__deletionAdapterOfTrade = new EntityDeletionOrUpdateAdapter<Trade>(__db) {
@@ -96,7 +97,7 @@ public final class TradeDao_Impl implements TradeDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "UPDATE OR ABORT `trades` SET `id` = ?,`ticker` = ?,`entryDate` = ?,`expirationDate` = ?,`strikePrice` = ?,`entryOptionPrice` = ?,`entryStockPrice` = ?,`quantity` = ?,`exitDate` = ?,`exitOptionPrice` = ?,`exitStockPrice` = ?,`isClosed` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `trades` SET `id` = ?,`ticker` = ?,`entryDate` = ?,`expirationDate` = ?,`strikePrice` = ?,`entryOptionPrice` = ?,`entryStockPrice` = ?,`quantity` = ?,`exitDate` = ?,`exitOptionPrice` = ?,`exitStockPrice` = ?,`optionType` = ?,`isClosed` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -125,9 +126,10 @@ public final class TradeDao_Impl implements TradeDao {
         } else {
           statement.bindString(11, entity.getExitStockPrice());
         }
+        statement.bindString(12, entity.getOptionType());
         final int _tmp = entity.isClosed() ? 1 : 0;
-        statement.bindLong(12, _tmp);
-        statement.bindLong(13, entity.getId());
+        statement.bindLong(13, _tmp);
+        statement.bindLong(14, entity.getId());
       }
     };
   }
@@ -225,6 +227,7 @@ public final class TradeDao_Impl implements TradeDao {
           final int _cursorIndexOfExitDate = CursorUtil.getColumnIndexOrThrow(_cursor, "exitDate");
           final int _cursorIndexOfExitOptionPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "exitOptionPrice");
           final int _cursorIndexOfExitStockPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "exitStockPrice");
+          final int _cursorIndexOfOptionType = CursorUtil.getColumnIndexOrThrow(_cursor, "optionType");
           final int _cursorIndexOfIsClosed = CursorUtil.getColumnIndexOrThrow(_cursor, "isClosed");
           final List<Trade> _result = new ArrayList<Trade>(_cursor.getCount());
           while (_cursor.moveToNext()) {
@@ -263,11 +266,13 @@ public final class TradeDao_Impl implements TradeDao {
             } else {
               _tmpExitStockPrice = _cursor.getString(_cursorIndexOfExitStockPrice);
             }
+            final String _tmpOptionType;
+            _tmpOptionType = _cursor.getString(_cursorIndexOfOptionType);
             final boolean _tmpIsClosed;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsClosed);
             _tmpIsClosed = _tmp != 0;
-            _item = new Trade(_tmpId,_tmpTicker,_tmpEntryDate,_tmpExpirationDate,_tmpStrikePrice,_tmpEntryOptionPrice,_tmpEntryStockPrice,_tmpQuantity,_tmpExitDate,_tmpExitOptionPrice,_tmpExitStockPrice,_tmpIsClosed);
+            _item = new Trade(_tmpId,_tmpTicker,_tmpEntryDate,_tmpExpirationDate,_tmpStrikePrice,_tmpEntryOptionPrice,_tmpEntryStockPrice,_tmpQuantity,_tmpExitDate,_tmpExitOptionPrice,_tmpExitStockPrice,_tmpOptionType,_tmpIsClosed);
             _result.add(_item);
           }
           return _result;
@@ -304,6 +309,7 @@ public final class TradeDao_Impl implements TradeDao {
           final int _cursorIndexOfExitDate = CursorUtil.getColumnIndexOrThrow(_cursor, "exitDate");
           final int _cursorIndexOfExitOptionPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "exitOptionPrice");
           final int _cursorIndexOfExitStockPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "exitStockPrice");
+          final int _cursorIndexOfOptionType = CursorUtil.getColumnIndexOrThrow(_cursor, "optionType");
           final int _cursorIndexOfIsClosed = CursorUtil.getColumnIndexOrThrow(_cursor, "isClosed");
           final List<Trade> _result = new ArrayList<Trade>(_cursor.getCount());
           while (_cursor.moveToNext()) {
@@ -342,11 +348,13 @@ public final class TradeDao_Impl implements TradeDao {
             } else {
               _tmpExitStockPrice = _cursor.getString(_cursorIndexOfExitStockPrice);
             }
+            final String _tmpOptionType;
+            _tmpOptionType = _cursor.getString(_cursorIndexOfOptionType);
             final boolean _tmpIsClosed;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsClosed);
             _tmpIsClosed = _tmp != 0;
-            _item = new Trade(_tmpId,_tmpTicker,_tmpEntryDate,_tmpExpirationDate,_tmpStrikePrice,_tmpEntryOptionPrice,_tmpEntryStockPrice,_tmpQuantity,_tmpExitDate,_tmpExitOptionPrice,_tmpExitStockPrice,_tmpIsClosed);
+            _item = new Trade(_tmpId,_tmpTicker,_tmpEntryDate,_tmpExpirationDate,_tmpStrikePrice,_tmpEntryOptionPrice,_tmpEntryStockPrice,_tmpQuantity,_tmpExitDate,_tmpExitOptionPrice,_tmpExitStockPrice,_tmpOptionType,_tmpIsClosed);
             _result.add(_item);
           }
           return _result;
@@ -386,6 +394,7 @@ public final class TradeDao_Impl implements TradeDao {
           final int _cursorIndexOfExitDate = CursorUtil.getColumnIndexOrThrow(_cursor, "exitDate");
           final int _cursorIndexOfExitOptionPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "exitOptionPrice");
           final int _cursorIndexOfExitStockPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "exitStockPrice");
+          final int _cursorIndexOfOptionType = CursorUtil.getColumnIndexOrThrow(_cursor, "optionType");
           final int _cursorIndexOfIsClosed = CursorUtil.getColumnIndexOrThrow(_cursor, "isClosed");
           final Trade _result;
           if (_cursor.moveToFirst()) {
@@ -423,11 +432,13 @@ public final class TradeDao_Impl implements TradeDao {
             } else {
               _tmpExitStockPrice = _cursor.getString(_cursorIndexOfExitStockPrice);
             }
+            final String _tmpOptionType;
+            _tmpOptionType = _cursor.getString(_cursorIndexOfOptionType);
             final boolean _tmpIsClosed;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsClosed);
             _tmpIsClosed = _tmp != 0;
-            _result = new Trade(_tmpId,_tmpTicker,_tmpEntryDate,_tmpExpirationDate,_tmpStrikePrice,_tmpEntryOptionPrice,_tmpEntryStockPrice,_tmpQuantity,_tmpExitDate,_tmpExitOptionPrice,_tmpExitStockPrice,_tmpIsClosed);
+            _result = new Trade(_tmpId,_tmpTicker,_tmpEntryDate,_tmpExpirationDate,_tmpStrikePrice,_tmpEntryOptionPrice,_tmpEntryStockPrice,_tmpQuantity,_tmpExitDate,_tmpExitOptionPrice,_tmpExitStockPrice,_tmpOptionType,_tmpIsClosed);
           } else {
             _result = null;
           }
@@ -463,6 +474,7 @@ public final class TradeDao_Impl implements TradeDao {
           final int _cursorIndexOfExitDate = CursorUtil.getColumnIndexOrThrow(_cursor, "exitDate");
           final int _cursorIndexOfExitOptionPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "exitOptionPrice");
           final int _cursorIndexOfExitStockPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "exitStockPrice");
+          final int _cursorIndexOfOptionType = CursorUtil.getColumnIndexOrThrow(_cursor, "optionType");
           final int _cursorIndexOfIsClosed = CursorUtil.getColumnIndexOrThrow(_cursor, "isClosed");
           final List<Trade> _result = new ArrayList<Trade>(_cursor.getCount());
           while (_cursor.moveToNext()) {
@@ -501,11 +513,13 @@ public final class TradeDao_Impl implements TradeDao {
             } else {
               _tmpExitStockPrice = _cursor.getString(_cursorIndexOfExitStockPrice);
             }
+            final String _tmpOptionType;
+            _tmpOptionType = _cursor.getString(_cursorIndexOfOptionType);
             final boolean _tmpIsClosed;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsClosed);
             _tmpIsClosed = _tmp != 0;
-            _item = new Trade(_tmpId,_tmpTicker,_tmpEntryDate,_tmpExpirationDate,_tmpStrikePrice,_tmpEntryOptionPrice,_tmpEntryStockPrice,_tmpQuantity,_tmpExitDate,_tmpExitOptionPrice,_tmpExitStockPrice,_tmpIsClosed);
+            _item = new Trade(_tmpId,_tmpTicker,_tmpEntryDate,_tmpExpirationDate,_tmpStrikePrice,_tmpEntryOptionPrice,_tmpEntryStockPrice,_tmpQuantity,_tmpExitDate,_tmpExitOptionPrice,_tmpExitStockPrice,_tmpOptionType,_tmpIsClosed);
             _result.add(_item);
           }
           return _result;
@@ -519,6 +533,85 @@ public final class TradeDao_Impl implements TradeDao {
         _statement.release();
       }
     });
+  }
+
+  @Override
+  public Object getAllTrades(final Continuation<? super List<Trade>> $completion) {
+    final String _sql = "SELECT * FROM trades ORDER BY entryDate DESC";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<Trade>>() {
+      @Override
+      @NonNull
+      public List<Trade> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfTicker = CursorUtil.getColumnIndexOrThrow(_cursor, "ticker");
+          final int _cursorIndexOfEntryDate = CursorUtil.getColumnIndexOrThrow(_cursor, "entryDate");
+          final int _cursorIndexOfExpirationDate = CursorUtil.getColumnIndexOrThrow(_cursor, "expirationDate");
+          final int _cursorIndexOfStrikePrice = CursorUtil.getColumnIndexOrThrow(_cursor, "strikePrice");
+          final int _cursorIndexOfEntryOptionPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "entryOptionPrice");
+          final int _cursorIndexOfEntryStockPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "entryStockPrice");
+          final int _cursorIndexOfQuantity = CursorUtil.getColumnIndexOrThrow(_cursor, "quantity");
+          final int _cursorIndexOfExitDate = CursorUtil.getColumnIndexOrThrow(_cursor, "exitDate");
+          final int _cursorIndexOfExitOptionPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "exitOptionPrice");
+          final int _cursorIndexOfExitStockPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "exitStockPrice");
+          final int _cursorIndexOfOptionType = CursorUtil.getColumnIndexOrThrow(_cursor, "optionType");
+          final int _cursorIndexOfIsClosed = CursorUtil.getColumnIndexOrThrow(_cursor, "isClosed");
+          final List<Trade> _result = new ArrayList<Trade>(_cursor.getCount());
+          while (_cursor.moveToNext()) {
+            final Trade _item;
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final String _tmpTicker;
+            _tmpTicker = _cursor.getString(_cursorIndexOfTicker);
+            final long _tmpEntryDate;
+            _tmpEntryDate = _cursor.getLong(_cursorIndexOfEntryDate);
+            final long _tmpExpirationDate;
+            _tmpExpirationDate = _cursor.getLong(_cursorIndexOfExpirationDate);
+            final String _tmpStrikePrice;
+            _tmpStrikePrice = _cursor.getString(_cursorIndexOfStrikePrice);
+            final String _tmpEntryOptionPrice;
+            _tmpEntryOptionPrice = _cursor.getString(_cursorIndexOfEntryOptionPrice);
+            final String _tmpEntryStockPrice;
+            _tmpEntryStockPrice = _cursor.getString(_cursorIndexOfEntryStockPrice);
+            final int _tmpQuantity;
+            _tmpQuantity = _cursor.getInt(_cursorIndexOfQuantity);
+            final Long _tmpExitDate;
+            if (_cursor.isNull(_cursorIndexOfExitDate)) {
+              _tmpExitDate = null;
+            } else {
+              _tmpExitDate = _cursor.getLong(_cursorIndexOfExitDate);
+            }
+            final String _tmpExitOptionPrice;
+            if (_cursor.isNull(_cursorIndexOfExitOptionPrice)) {
+              _tmpExitOptionPrice = null;
+            } else {
+              _tmpExitOptionPrice = _cursor.getString(_cursorIndexOfExitOptionPrice);
+            }
+            final String _tmpExitStockPrice;
+            if (_cursor.isNull(_cursorIndexOfExitStockPrice)) {
+              _tmpExitStockPrice = null;
+            } else {
+              _tmpExitStockPrice = _cursor.getString(_cursorIndexOfExitStockPrice);
+            }
+            final String _tmpOptionType;
+            _tmpOptionType = _cursor.getString(_cursorIndexOfOptionType);
+            final boolean _tmpIsClosed;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfIsClosed);
+            _tmpIsClosed = _tmp != 0;
+            _item = new Trade(_tmpId,_tmpTicker,_tmpEntryDate,_tmpExpirationDate,_tmpStrikePrice,_tmpEntryOptionPrice,_tmpEntryStockPrice,_tmpQuantity,_tmpExitDate,_tmpExitOptionPrice,_tmpExitStockPrice,_tmpOptionType,_tmpIsClosed);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
   }
 
   @NonNull

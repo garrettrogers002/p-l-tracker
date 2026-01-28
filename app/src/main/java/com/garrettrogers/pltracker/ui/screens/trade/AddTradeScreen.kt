@@ -5,6 +5,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 
 
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.RadioButton
+import androidx.compose.ui.Alignment
 import android.app.DatePickerDialog
 import android.content.Context
 import android.widget.DatePicker
@@ -58,12 +63,27 @@ fun AddTradeScreen(
                 .padding(padding)
                 .padding(16.dp)
         ) {
+
             OutlinedTextField(
                 value = viewModel.ticker,
                 onValueChange = { viewModel.ticker = it.uppercase() },
                 label = { Text("Ticker") },
                 modifier = Modifier.fillMaxWidth()
             )
+            
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                RadioButton(
+                    selected = viewModel.optionType == "CALL",
+                    onClick = { viewModel.optionType = "CALL" }
+                )
+                Text("Call")
+                Spacer(modifier = Modifier.width(16.dp))
+                RadioButton(
+                    selected = viewModel.optionType == "PUT",
+                    onClick = { viewModel.optionType = "PUT" }
+                )
+                Text("Put")
+            }
             
             DatePickerField(
                 label = "Entry Date",

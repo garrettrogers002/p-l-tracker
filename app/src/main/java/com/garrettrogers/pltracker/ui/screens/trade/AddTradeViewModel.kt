@@ -24,6 +24,7 @@ class AddTradeViewModel @Inject constructor(
     var optionPrice by mutableStateOf("")
     var stockPrice by mutableStateOf("")
     var quantity by mutableStateOf("")
+    var optionType by mutableStateOf("CALL") // Default to CALL
 
     fun saveTrade(onSuccess: () -> Unit) {
         viewModelScope.launch {
@@ -34,7 +35,8 @@ class AddTradeViewModel @Inject constructor(
                 strikePrice = strikePrice,
                 entryOptionPrice = optionPrice,
                 entryStockPrice = stockPrice,
-                quantity = quantity.toIntOrNull() ?: 1
+                quantity = quantity.toIntOrNull() ?: 1,
+                optionType = optionType
             )
             repository.insertTrade(trade)
             onSuccess()

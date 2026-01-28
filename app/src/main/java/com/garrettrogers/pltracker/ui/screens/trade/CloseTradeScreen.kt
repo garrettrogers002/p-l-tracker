@@ -43,7 +43,6 @@ import androidx.compose.runtime.setValue
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CloseTradeScreen(
-    tradeId: Long,
     viewModel: CloseTradeViewModel = hiltViewModel(),
     onNavigateBack: () -> Unit
 ) {

@@ -33,4 +33,7 @@ interface TradeDao {
     fun getClosedTradesByTicker(ticker: String): Flow<List<Trade>>
     @Delete
     suspend fun delete(trade: Trade)
+
+    @Query("SELECT * FROM trades ORDER BY entryDate DESC")
+    suspend fun getAllTrades(): List<Trade>
 }

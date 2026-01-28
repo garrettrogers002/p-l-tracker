@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.garrettrogers.pltracker.data.local.AppDatabase;
 import com.garrettrogers.pltracker.data.local.PortfolioDao;
 import com.garrettrogers.pltracker.data.local.TradeDao;
+import com.garrettrogers.pltracker.data.local.UserPreferences;
 import com.garrettrogers.pltracker.data.repository.TradeRepository;
 import com.garrettrogers.pltracker.data.repository.TradeRepositoryImpl;
 import com.garrettrogers.pltracker.di.DatabaseModule;
@@ -21,6 +22,8 @@ import com.garrettrogers.pltracker.ui.screens.dashboard.DashboardViewModel;
 import com.garrettrogers.pltracker.ui.screens.dashboard.DashboardViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.garrettrogers.pltracker.ui.screens.history.HistoryViewModel;
 import com.garrettrogers.pltracker.ui.screens.history.HistoryViewModel_HiltModules_KeyModule_ProvideFactory;
+import com.garrettrogers.pltracker.ui.screens.settings.SettingsViewModel;
+import com.garrettrogers.pltracker.ui.screens.settings.SettingsViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.garrettrogers.pltracker.ui.screens.trade.AddTradeViewModel;
 import com.garrettrogers.pltracker.ui.screens.trade.AddTradeViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.garrettrogers.pltracker.ui.screens.trade.CloseTradeViewModel;
@@ -39,6 +42,7 @@ import dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories;
 import dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories_InternalFactoryFactory_Factory;
 import dagger.hilt.android.internal.managers.ActivityRetainedComponentManager_LifecycleModule_ProvideActivityRetainedLifecycleFactory;
 import dagger.hilt.android.internal.modules.ApplicationContextModule;
+import dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideApplicationFactory;
 import dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideContextFactory;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.DoubleCheck;
@@ -391,7 +395,7 @@ public final class DaggerPLTrackerApp_HiltComponents_SingletonC {
 
     @Override
     public Set<String> getViewModelKeys() {
-      return SetBuilder.<String>newSetBuilder(5).add(AddTradeViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(AnalysisViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(CloseTradeViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(DashboardViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(HistoryViewModel_HiltModules_KeyModule_ProvideFactory.provide()).build();
+      return SetBuilder.<String>newSetBuilder(6).add(AddTradeViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(AnalysisViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(CloseTradeViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(DashboardViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(HistoryViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(SettingsViewModel_HiltModules_KeyModule_ProvideFactory.provide()).build();
     }
 
     @Override
@@ -429,6 +433,8 @@ public final class DaggerPLTrackerApp_HiltComponents_SingletonC {
 
     private Provider<HistoryViewModel> historyViewModelProvider;
 
+    private Provider<SettingsViewModel> settingsViewModelProvider;
+
     private ViewModelCImpl(SingletonCImpl singletonCImpl,
         ActivityRetainedCImpl activityRetainedCImpl, SavedStateHandle savedStateHandleParam,
         ViewModelLifecycle viewModelLifecycleParam) {
@@ -447,11 +453,12 @@ public final class DaggerPLTrackerApp_HiltComponents_SingletonC {
       this.closeTradeViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
       this.dashboardViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
       this.historyViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 4);
+      this.settingsViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 5);
     }
 
     @Override
     public Map<String, Provider<ViewModel>> getHiltViewModelMap() {
-      return MapBuilder.<String, Provider<ViewModel>>newMapBuilder(5).put("com.garrettrogers.pltracker.ui.screens.trade.AddTradeViewModel", ((Provider) addTradeViewModelProvider)).put("com.garrettrogers.pltracker.ui.screens.analysis.AnalysisViewModel", ((Provider) analysisViewModelProvider)).put("com.garrettrogers.pltracker.ui.screens.trade.CloseTradeViewModel", ((Provider) closeTradeViewModelProvider)).put("com.garrettrogers.pltracker.ui.screens.dashboard.DashboardViewModel", ((Provider) dashboardViewModelProvider)).put("com.garrettrogers.pltracker.ui.screens.history.HistoryViewModel", ((Provider) historyViewModelProvider)).build();
+      return MapBuilder.<String, Provider<ViewModel>>newMapBuilder(6).put("com.garrettrogers.pltracker.ui.screens.trade.AddTradeViewModel", ((Provider) addTradeViewModelProvider)).put("com.garrettrogers.pltracker.ui.screens.analysis.AnalysisViewModel", ((Provider) analysisViewModelProvider)).put("com.garrettrogers.pltracker.ui.screens.trade.CloseTradeViewModel", ((Provider) closeTradeViewModelProvider)).put("com.garrettrogers.pltracker.ui.screens.dashboard.DashboardViewModel", ((Provider) dashboardViewModelProvider)).put("com.garrettrogers.pltracker.ui.screens.history.HistoryViewModel", ((Provider) historyViewModelProvider)).put("com.garrettrogers.pltracker.ui.screens.settings.SettingsViewModel", ((Provider) settingsViewModelProvider)).build();
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -489,6 +496,9 @@ public final class DaggerPLTrackerApp_HiltComponents_SingletonC {
 
           case 4: // com.garrettrogers.pltracker.ui.screens.history.HistoryViewModel 
           return (T) new HistoryViewModel(singletonCImpl.bindTradeRepositoryProvider.get());
+
+          case 5: // com.garrettrogers.pltracker.ui.screens.settings.SettingsViewModel 
+          return (T) new SettingsViewModel(singletonCImpl.userPreferencesProvider.get(), singletonCImpl.bindTradeRepositoryProvider.get(), ApplicationContextModule_ProvideApplicationFactory.provideApplication(singletonCImpl.applicationContextModule));
 
           default: throw new AssertionError(id);
         }
@@ -579,6 +589,8 @@ public final class DaggerPLTrackerApp_HiltComponents_SingletonC {
 
     private Provider<TradeRepository> bindTradeRepositoryProvider;
 
+    private Provider<UserPreferences> userPreferencesProvider;
+
     private SingletonCImpl(ApplicationContextModule applicationContextModuleParam) {
       this.applicationContextModule = applicationContextModuleParam;
       initialize(applicationContextModuleParam);
@@ -592,6 +604,7 @@ public final class DaggerPLTrackerApp_HiltComponents_SingletonC {
       this.providePortfolioDaoProvider = DoubleCheck.provider(new SwitchingProvider<PortfolioDao>(singletonCImpl, 3));
       this.tradeRepositoryImplProvider = new SwitchingProvider<>(singletonCImpl, 0);
       this.bindTradeRepositoryProvider = DoubleCheck.provider((Provider) tradeRepositoryImplProvider);
+      this.userPreferencesProvider = DoubleCheck.provider(new SwitchingProvider<UserPreferences>(singletonCImpl, 4));
     }
 
     @Override
@@ -638,6 +651,9 @@ public final class DaggerPLTrackerApp_HiltComponents_SingletonC {
 
           case 3: // com.garrettrogers.pltracker.data.local.PortfolioDao 
           return (T) DatabaseModule_ProvidePortfolioDaoFactory.providePortfolioDao(singletonCImpl.provideDatabaseProvider.get());
+
+          case 4: // com.garrettrogers.pltracker.data.local.UserPreferences 
+          return (T) new UserPreferences(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
           default: throw new AssertionError(id);
         }

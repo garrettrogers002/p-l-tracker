@@ -7,7 +7,7 @@ import com.garrettrogers.pltracker.data.model.Trade
 
 @Database(
     entities = [Trade::class, PortfolioSnapshot::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {

@@ -29,4 +29,6 @@ class TradeRepositoryImpl @Inject constructor(
     override suspend fun logSnapshot(snapshot: PortfolioSnapshot) = portfolioDao.insertSnapshot(snapshot)
 
     override fun getClosedTradesByTicker(ticker: String): Flow<List<Trade>> = tradeDao.getClosedTradesByTicker(ticker)
+
+    override suspend fun getAllTrades(): List<Trade> = tradeDao.getAllTrades()
 }

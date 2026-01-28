@@ -16,5 +16,6 @@ data class Trade(
     val exitDate: Long? = null,
     val exitOptionPrice: String? = null,
     val exitStockPrice: String? = null,
+    val optionType: String = "CALL", // "CALL" or "PUT"
     val isClosed: Boolean = false // Explicit flag for filtering
 )
