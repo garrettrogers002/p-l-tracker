@@ -4,6 +4,7 @@ import com.garrettrogers.pltracker.data.local.PortfolioDao
 import com.garrettrogers.pltracker.data.local.TradeDao
 import com.garrettrogers.pltracker.data.model.PortfolioSnapshot
 import com.garrettrogers.pltracker.data.model.Trade
+import com.garrettrogers.pltracker.data.model.AccountTransaction
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -28,7 +29,15 @@ class TradeRepositoryImpl @Inject constructor(
 
     override suspend fun logSnapshot(snapshot: PortfolioSnapshot) = portfolioDao.insertSnapshot(snapshot)
 
+    override suspend fun deleteSnapshot(snapshot: PortfolioSnapshot) = portfolioDao.deleteSnapshot(snapshot)
+
     override fun getClosedTradesByTicker(ticker: String): Flow<List<Trade>> = tradeDao.getClosedTradesByTicker(ticker)
 
     override suspend fun getAllTrades(): List<Trade> = tradeDao.getAllTrades()
+
+    override fun getTransactions(): Flow<List<AccountTransaction>> = portfolioDao.getTransactions()
+
+    override suspend fun logTransaction(transaction: AccountTransaction) = portfolioDao.insertTransaction(transaction)
+
+    override suspend fun deleteTransaction(transaction: AccountTransaction) = portfolioDao.deleteTransaction(transaction)
 }

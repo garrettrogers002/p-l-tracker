@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.garrettrogers.pltracker.data.model.Trade
 import com.garrettrogers.pltracker.data.repository.TradeRepository
+import com.garrettrogers.pltracker.data.model.AccountTransaction
+import com.garrettrogers.pltracker.data.model.PortfolioSnapshot
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -28,6 +30,36 @@ class HistoryViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val dateFormat = SimpleDateFormat("MMMM yyyy", Locale.US)
+
+    val transactions = repository.getTransactions()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
+    val snapshots = repository.getSnapshots()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
+    fun logPortfolioValue(date: Long, value: String) {
+        viewModelScope.launch {
+            repository.logSnapshot(PortfolioSnapshot(date = date, totalValue = value))
+        }
+    }
+
+    fun deleteSnapshot(snapshot: PortfolioSnapshot) {
+        viewModelScope.launch {
+            repository.deleteSnapshot(snapshot)
+        }
+    }
+
+    fun logTransaction(date: Long, amount: String, type: String, note: String) {
+        viewModelScope.launch {
+            repository.logTransaction(AccountTransaction(date = date, amount = amount, type = type, note = note))
+        }
+    }
+
+    fun deleteTransaction(transaction: AccountTransaction) {
+        viewModelScope.launch {
+            repository.deleteTransaction(transaction)
+        }
+    }
 
     val historyGroups: StateFlow<List<HistoryGroup>> = repository.getClosedTrades()
         .map { trades ->

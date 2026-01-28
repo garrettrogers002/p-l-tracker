@@ -33,19 +33,21 @@ public final class AppDatabase_Impl extends AppDatabase {
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(2) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(3) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS `trades` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `ticker` TEXT NOT NULL, `entryDate` INTEGER NOT NULL, `expirationDate` INTEGER NOT NULL, `strikePrice` TEXT NOT NULL, `entryOptionPrice` TEXT NOT NULL, `entryStockPrice` TEXT NOT NULL, `quantity` INTEGER NOT NULL, `exitDate` INTEGER, `exitOptionPrice` TEXT, `exitStockPrice` TEXT, `optionType` TEXT NOT NULL, `isClosed` INTEGER NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `portfolio_snapshots` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` INTEGER NOT NULL, `totalValue` TEXT NOT NULL)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `account_transactions` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` INTEGER NOT NULL, `amount` TEXT NOT NULL, `type` TEXT NOT NULL, `note` TEXT NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c14e0a7fadd93aa6513bc78031bd1137')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0c96cf96ea2d3cc977cf84efb6fe494a')");
       }
 
       @Override
       public void dropAllTables(@NonNull final SupportSQLiteDatabase db) {
         db.execSQL("DROP TABLE IF EXISTS `trades`");
         db.execSQL("DROP TABLE IF EXISTS `portfolio_snapshots`");
+        db.execSQL("DROP TABLE IF EXISTS `account_transactions`");
         final List<? extends RoomDatabase.Callback> _callbacks = mCallbacks;
         if (_callbacks != null) {
           for (RoomDatabase.Callback _callback : _callbacks) {
@@ -125,9 +127,24 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Expected:\n" + _infoPortfolioSnapshots + "\n"
                   + " Found:\n" + _existingPortfolioSnapshots);
         }
+        final HashMap<String, TableInfo.Column> _columnsAccountTransactions = new HashMap<String, TableInfo.Column>(5);
+        _columnsAccountTransactions.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAccountTransactions.put("date", new TableInfo.Column("date", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAccountTransactions.put("amount", new TableInfo.Column("amount", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAccountTransactions.put("type", new TableInfo.Column("type", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAccountTransactions.put("note", new TableInfo.Column("note", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysAccountTransactions = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesAccountTransactions = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoAccountTransactions = new TableInfo("account_transactions", _columnsAccountTransactions, _foreignKeysAccountTransactions, _indicesAccountTransactions);
+        final TableInfo _existingAccountTransactions = TableInfo.read(db, "account_transactions");
+        if (!_infoAccountTransactions.equals(_existingAccountTransactions)) {
+          return new RoomOpenHelper.ValidationResult(false, "account_transactions(com.garrettrogers.pltracker.data.model.AccountTransaction).\n"
+                  + " Expected:\n" + _infoAccountTransactions + "\n"
+                  + " Found:\n" + _existingAccountTransactions);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "c14e0a7fadd93aa6513bc78031bd1137", "5e97c7045f3981fa970148770409ec1e");
+    }, "0c96cf96ea2d3cc977cf84efb6fe494a", "d9ed8f5acde21ca0bc26e6cded5443b2");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;
@@ -138,7 +155,7 @@ public final class AppDatabase_Impl extends AppDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     final HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "trades","portfolio_snapshots");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "trades","portfolio_snapshots","account_transactions");
   }
 
   @Override
@@ -149,6 +166,7 @@ public final class AppDatabase_Impl extends AppDatabase {
       super.beginTransaction();
       _db.execSQL("DELETE FROM `trades`");
       _db.execSQL("DELETE FROM `portfolio_snapshots`");
+      _db.execSQL("DELETE FROM `account_transactions`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
