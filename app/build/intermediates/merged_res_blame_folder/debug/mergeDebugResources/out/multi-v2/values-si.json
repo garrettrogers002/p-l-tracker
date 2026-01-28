@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-68:/values-si/values-si.xml",
+            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-73:/values-si/values-si.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Gary\\.gradle\\caches\\transforms-4\\387961d5f571f23a52bec85acaf1d82a\\transformed\\ui-release\\res\\values-si\\values-si.xml",

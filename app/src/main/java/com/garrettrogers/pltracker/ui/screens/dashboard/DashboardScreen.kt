@@ -16,6 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -36,6 +37,7 @@ fun DashboardScreen(
     onNavigateToAddTrade: () -> Unit,
     onNavigateToHistory: () -> Unit,
     onNavigateToAnalysis: () -> Unit,
+    onNavigateToSettings: () -> Unit,
     onNavigateToCloseTrade: (Long) -> Unit
 ) {
     val activeTrades by viewModel.activeTrades.collectAsState()
@@ -50,6 +52,9 @@ fun DashboardScreen(
                     }
                     IconButton(onClick = onNavigateToHistory) {
                         Icon(imageVector = Icons.Default.DateRange, contentDescription = "History")
+                    }
+                    IconButton(onClick = onNavigateToSettings) {
+                        Icon(imageVector = Icons.Default.Settings, contentDescription = "Settings") // Use Settings icon
                     }
                 }
             )

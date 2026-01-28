@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-68:/values-iw/values-iw.xml",
+            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-73:/values-iw/values-iw.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Gary\\.gradle\\caches\\transforms-4\\a47cc95c4cee695bbee134cc390d8a1a\\transformed\\core-1.12.0\\res\\values-iw\\values-iw.xml",

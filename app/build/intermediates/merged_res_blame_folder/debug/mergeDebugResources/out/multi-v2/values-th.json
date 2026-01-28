@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-68:/values-th/values-th.xml",
+            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-73:/values-th/values-th.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Gary\\.gradle\\caches\\transforms-4\\e68d91f970cbe37135f552722035eed9\\transformed\\material3-1.1.2\\res\\values-th\\values-th.xml",

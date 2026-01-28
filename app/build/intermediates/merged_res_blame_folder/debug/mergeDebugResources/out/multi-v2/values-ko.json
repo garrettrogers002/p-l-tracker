@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-68:/values-ko/values-ko.xml",
+            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-73:/values-ko/values-ko.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Gary\\.gradle\\caches\\transforms-4\\387961d5f571f23a52bec85acaf1d82a\\transformed\\ui-release\\res\\values-ko\\values-ko.xml",

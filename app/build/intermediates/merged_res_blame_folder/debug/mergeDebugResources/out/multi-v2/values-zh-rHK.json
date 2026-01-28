@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-68:/values-zh-rHK/values-zh-rHK.xml",
+            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-73:/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Gary\\.gradle\\caches\\transforms-4\\ca1b39f115a5a73df12c0a69fcb45ead\\transformed\\material-1.11.0\\res\\values-zh-rHK\\values-zh-rHK.xml",
