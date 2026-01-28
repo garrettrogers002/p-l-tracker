@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-60:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-68:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Gary\\.gradle\\caches\\9.0-milestone-1\\transforms\\b88779ffe37b8268ee2caadc4374cba3\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\Gary\\.gradle\\caches\\transforms-4\\47dab670f47d7fc08eff9a24ebe55900\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

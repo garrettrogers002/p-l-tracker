@@ -1,20 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-60:/values-v16/values-v16.xml",
+            "outputFile": "com.garrettrogers.pltracker.app-mergeDebugResources-68:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Gary\\.gradle\\caches\\9.0-milestone-1\\transforms\\c564b135955959e93f7f10e6443bcfbc\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Gary\\.gradle\\caches\\9.0-milestone-1\\transforms\\b88779ffe37b8268ee2caadc4374cba3\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Gary\\.gradle\\caches\\transforms-4\\47dab670f47d7fc08eff9a24ebe55900\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,6 +20,16 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Gary\\.gradle\\caches\\transforms-4\\a47cc95c4cee695bbee134cc390d8a1a\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
                     }
                 }
             ]

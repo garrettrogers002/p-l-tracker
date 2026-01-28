@@ -5,6 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import com.garrettrogers.pltracker.ui.screens.analysis.AnalysisScreen
 import com.garrettrogers.pltracker.ui.screens.dashboard.DashboardScreen
 import com.garrettrogers.pltracker.ui.screens.history.HistoryScreen
@@ -32,8 +34,13 @@ fun PLTrackerNavHost(
                 onNavigateBack = { navController.popBackStack() }
             )
         }
-        composable(Screen.CloseTrade.route) { backStackEntry ->
-            val tradeId = backStackEntry.arguments?.getString("tradeId")?.toLongOrNull()
+
+
+        composable(
+            route = Screen.CloseTrade.route,
+            arguments = listOf(navArgument("tradeId") { type = NavType.LongType })
+        ) { backStackEntry ->
+            val tradeId = backStackEntry.arguments?.getLong("tradeId")
             if (tradeId != null) {
                 CloseTradeScreen(
                     tradeId = tradeId,

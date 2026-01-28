@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.garrettrogers.pltracker.app-merged_res-70:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.garrettrogers.pltracker.app-main-72:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.garrettrogers.pltracker.app-merged_res-70:/xml_backup_rules.xml.flat",
+        "source": "com.garrettrogers.pltracker.app-main-72:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.garrettrogers.pltracker.app-merged_res-70:/xml_data_extraction_rules.xml.flat",
+        "source": "com.garrettrogers.pltracker.app-main-72:/xml/data_extraction_rules.xml"
+    }
+]
