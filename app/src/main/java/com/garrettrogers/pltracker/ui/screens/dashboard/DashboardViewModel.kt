@@ -7,6 +7,7 @@ import javax.inject.Inject
 
 import androidx.lifecycle.viewModelScope
 import com.garrettrogers.pltracker.data.model.Trade
+import com.garrettrogers.pltracker.data.model.PortfolioSnapshot
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -17,6 +18,13 @@ class DashboardViewModel @Inject constructor(
 ) : ViewModel() {
     
     val activeTrades: StateFlow<List<Trade>> = repository.getActiveTrades()
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = emptyList()
+        )
+    
+    val snapshots: StateFlow<List<PortfolioSnapshot>> = repository.getSnapshots()
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
