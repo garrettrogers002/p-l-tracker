@@ -23,7 +23,7 @@ fun PLTrackerNavHost(
         composable(Screen.Dashboard.route) {
             DashboardScreen(
                 onNavigateToAddTrade = { navController.navigate(Screen.AddTrade.route) },
-                onNavigateToDelete = { /* No-op or handle active trade delete logic if needed */ }, // Dashboard usually invokes details or close
+
                 onNavigateToAnalysis = { navController.navigate(Screen.Analysis.route) },
                 onNavigateToHistory = { navController.navigate(Screen.History.route) },
                 onNavigateToSettings = { navController.navigate(Screen.Settings.route) },
