@@ -17,7 +17,5 @@ interface TradeRepository {
     
     fun getClosedTradesByTicker(ticker: String): Flow<List<Trade>>
     
-    suspend fun deleteTrade(trade: Trade) {
-        dao.delete(trade)
-    }
+
 }

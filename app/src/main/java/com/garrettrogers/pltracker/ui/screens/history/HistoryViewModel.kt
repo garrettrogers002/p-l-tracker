@@ -13,6 +13,7 @@ import java.math.BigDecimal
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 data class HistoryGroup(

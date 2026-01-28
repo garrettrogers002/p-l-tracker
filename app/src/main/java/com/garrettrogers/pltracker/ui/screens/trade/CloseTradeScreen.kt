@@ -115,7 +115,7 @@ fun CloseTradeScreen(
                     colors = ButtonDefaults.outlinedButtonColors(
                         contentColor = deleteColor
                     ),
-                    border = androidx.compose.material3.BorderStroke(1.dp, deleteColor)
+                    border = androidx.compose.foundation.BorderStroke(1.dp, deleteColor)
                 ) {
                     Text("Delete Trade (Entry Error)")
                 }

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:1:1-27:12
-INJECTED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:1:1-27:12
-INJECTED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:1:1-27:12
-INJECTED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:1:1-27:12
+ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:1:1-29:12
+INJECTED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:1:1-29:12
+INJECTED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:1:1-29:12
+INJECTED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:1:1-29:12
 MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\Gary\.gradle\caches\transforms-4\d164aa397174ac0325f0a67a8221e3e9\transformed\room-runtime-2.6.1\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.room:room-ktx:2.6.1] C:\Users\Gary\.gradle\caches\transforms-4\40489540164d0d60609b1e25bdb6c874\transformed\room-ktx-2.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Gary\.gradle\caches\transforms-4\ca1b39f115a5a73df12c0a69fcb45ead\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
@@ -102,8 +102,8 @@ MERGED from [com.google.dagger:dagger-lint-aar:2.48] C:\Users\Gary\.gradle\cache
 	xmlns:android
 		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:1:11-69
 application
-ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:5:5-25:19
-INJECTED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:5:5-25:19
+ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:5:5-27:19
+INJECTED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:5:5-27:19
 MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\Gary\.gradle\caches\transforms-4\d164aa397174ac0325f0a67a8221e3e9\transformed\room-runtime-2.6.1\AndroidManifest.xml:23:5-29:19
 MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\Gary\.gradle\caches\transforms-4\d164aa397174ac0325f0a67a8221e3e9\transformed\room-runtime-2.6.1\AndroidManifest.xml:23:5-29:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Gary\.gradle\caches\transforms-4\ca1b39f115a5a73df12c0a69fcb45ead\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
@@ -131,41 +131,45 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Gary\.gradle\cache
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] C:\Users\Gary\.gradle\caches\transforms-4\a47cc95c4cee695bbee134cc390d8a1a\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:13:9-35
 	android:label
 		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:10:9-41
 	android:fullBackupContent
 		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:9:9-54
+	android:roundIcon
+		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:12:9-54
 	tools:targetApi
-		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:13:9-29
+		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:15:9-29
+	android:icon
+		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:11:9-43
 	android:allowBackup
 		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:7:9-35
 	android:theme
-		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:12:9-47
+		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:14:9-47
 	android:dataExtractionRules
 		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:8:9-65
 	android:name
 		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:6:9-37
 activity#com.garrettrogers.pltracker.MainActivity
-ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:14:9-24:20
+ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:16:9-26:20
 	android:label
-		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:17:13-45
+		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:19:13-45
 	android:exported
-		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:16:13-36
+		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:18:13-36
 	android:theme
-		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:18:13-51
+		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:20:13-51
 	android:name
-		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:15:13-41
+		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:17:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:19:13-23:29
+ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:22:17-77
+ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:22:27-74
+		ADDED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml:24:27-74
 uses-sdk
 INJECTED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Gary\p-l-tracker\app\src\main\AndroidManifest.xml

@@ -22,7 +22,7 @@ class TradeRepositoryImpl @Inject constructor(
 
     override suspend fun updateTrade(trade: Trade) = tradeDao.updateTrade(trade)
 
-    override suspend fun deleteTrade(trade: Trade) = tradeDao.deleteTrade(trade)
+    override suspend fun deleteTrade(trade: Trade) = tradeDao.delete(trade)
 
     override fun getSnapshots(): Flow<List<PortfolioSnapshot>> = portfolioDao.getSnapshots()
 
