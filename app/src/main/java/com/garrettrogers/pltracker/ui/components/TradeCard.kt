@@ -23,10 +23,16 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+
 @Composable
 fun TradeCard(
     trade: Trade,
     onClick: () -> Unit,
+    onDeleteClick: (() -> Unit)? = null,
     showEntryCost: Boolean = true,
     showPnl: Boolean = false
 ) {
@@ -51,12 +57,19 @@ fun TradeCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = trade.ticker,
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = trade.ticker,
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    if (onDeleteClick != null) {
+                        IconButton(onClick = onDeleteClick) {
+                            Icon(Icons.Default.Delete, contentDescription = "Delete", tint = MaterialTheme.colorScheme.error)
+                        }
+                    }
+                }
                 Text(
                     text = "Q: ${trade.quantity}",
                     style = MaterialTheme.typography.bodyMedium,

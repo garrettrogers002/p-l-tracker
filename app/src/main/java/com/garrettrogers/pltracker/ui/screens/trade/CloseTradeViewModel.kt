@@ -50,4 +50,12 @@ class CloseTradeViewModel @Inject constructor(
             onSuccess()
         }
     }
+
+    fun deleteTrade(onSuccess: () -> Unit) {
+        val currentTrade = _trade.value ?: return
+        viewModelScope.launch {
+            repository.deleteTrade(currentTrade)
+            onSuccess()
+        }
+    }
 }

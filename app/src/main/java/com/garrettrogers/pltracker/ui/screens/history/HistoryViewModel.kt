@@ -66,4 +66,10 @@ class HistoryViewModel @Inject constructor(
             BigDecimal.ZERO
         }
     }
+
+    fun deleteTrade(trade: Trade) {
+        viewModelScope.launch {
+            repository.deleteTrade(trade)
+        }
+    }
 }

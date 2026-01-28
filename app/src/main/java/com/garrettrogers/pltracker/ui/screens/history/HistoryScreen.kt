@@ -38,9 +38,7 @@ fun HistoryScreen(
     val historyGroups by viewModel.historyGroups.collectAsState()
     
     // State for collapsed/expanded groups, keyed by monthYear string.
-    val expandedStates = remember { mutableMapOf<String, Boolean>().apply { 
-         // Logic can go here if needed
-    }.toMutableStateMap() }
+    val expandedStates = remember { androidx.compose.runtime.mutableStateMapOf<String, Boolean>() }
 
     Scaffold(
         topBar = {
@@ -82,6 +80,7 @@ fun HistoryScreen(
                             TradeCard(
                                 trade = trade,
                                 onClick = { /* Detail view if needed */ },
+                                onDeleteClick = { viewModel.deleteTrade(trade) },
                                 showEntryCost = true,
                                 showPnl = true
                             )

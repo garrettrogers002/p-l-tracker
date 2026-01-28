@@ -31,4 +31,6 @@ interface TradeDao {
     
     @Query("SELECT * FROM trades WHERE ticker = :ticker AND isClosed = 1 ORDER BY exitDate ASC")
     fun getClosedTradesByTicker(ticker: String): Flow<List<Trade>>
+    @Delete
+    suspend fun delete(trade: Trade)
 }

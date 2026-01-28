@@ -105,6 +105,20 @@ fun CloseTradeScreen(
                 ) {
                     Text("Close Position")
                 }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                val deleteColor = MaterialTheme.colorScheme.error
+                androidx.compose.material3.OutlinedButton(
+                    onClick = { viewModel.deleteTrade(onNavigateBack) },
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = deleteColor
+                    ),
+                    border = androidx.compose.material3.BorderStroke(1.dp, deleteColor)
+                ) {
+                    Text("Delete Trade (Entry Error)")
+                }
             } ?: Text("Loading trade...")
         }
     }
