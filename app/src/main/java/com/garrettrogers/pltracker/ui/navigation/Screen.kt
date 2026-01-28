@@ -8,4 +8,7 @@ sealed class Screen(val route: String) {
     }
     object History : Screen("history")
     object Analysis : Screen("analysis")
+    object TradeDetails : Screen("trade_details/{tradeId}") {
+        fun createRoute(tradeId: Long) = "trade_details/$tradeId"
+    }
 }

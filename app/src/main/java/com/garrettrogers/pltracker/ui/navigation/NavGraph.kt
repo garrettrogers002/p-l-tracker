@@ -12,6 +12,7 @@ import com.garrettrogers.pltracker.ui.screens.dashboard.DashboardScreen
 import com.garrettrogers.pltracker.ui.screens.history.HistoryScreen
 import com.garrettrogers.pltracker.ui.screens.trade.AddTradeScreen
 import com.garrettrogers.pltracker.ui.screens.trade.CloseTradeScreen
+import com.garrettrogers.pltracker.ui.screens.trade.TradeDetailsScreen
 
 @Composable
 fun PLTrackerNavHost(
@@ -50,13 +51,29 @@ fun PLTrackerNavHost(
         }
         composable(Screen.History.route) {
             HistoryScreen(
-                onNavigateBack = { navController.popBackStack() }
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToDetails = { tradeId ->
+                    navController.navigate(Screen.TradeDetails.createRoute(tradeId))
+                }
             )
         }
         composable(Screen.Analysis.route) {
             AnalysisScreen(
                 onNavigateBack = { navController.popBackStack() }
             )
+        }
+        
+        composable(
+            route = Screen.TradeDetails.route,
+            arguments = listOf(navArgument("tradeId") { type = NavType.LongType })
+        ) { backStackEntry ->
+            val tradeId = backStackEntry.arguments?.getLong("tradeId")
+            if (tradeId != null) {
+                TradeDetailsScreen(
+                    tradeId = tradeId,
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
         }
     }
 }

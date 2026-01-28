@@ -29,16 +29,51 @@ import androidx.compose.ui.unit.dp
 import com.garrettrogers.pltracker.ui.components.TradeCard
 import java.math.BigDecimal
 
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import com.garrettrogers.pltracker.data.model.Trade
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HistoryScreen(
     viewModel: HistoryViewModel = hiltViewModel(),
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    onNavigateToDetails: (Long) -> Unit
 ) {
     val historyGroups by viewModel.historyGroups.collectAsState()
     
     // State for collapsed/expanded groups, keyed by monthYear string.
     val expandedStates = remember { androidx.compose.runtime.mutableStateMapOf<String, Boolean>() }
+    
+    // State for Delete Confirmation
+    var tradeToDelete by remember { mutableStateOf<Trade?>(null) }
+    
+    if (tradeToDelete != null) {
+        AlertDialog(
+            onDismissRequest = { tradeToDelete = null },
+            title = { Text("Delete Trade?") },
+            text = { Text("Are you sure you want to delete ${tradeToDelete?.ticker}? This action cannot be undone.") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        tradeToDelete?.let { viewModel.deleteTrade(it) }
+                        tradeToDelete = null
+                    },
+                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
+                ) {
+                    Text("Delete")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { tradeToDelete = null }) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
 
     Scaffold(
         topBar = {
@@ -79,8 +114,8 @@ fun HistoryScreen(
                         items(group.trades) { trade ->
                             TradeCard(
                                 trade = trade,
-                                onClick = { /* Detail view if needed */ },
-                                onDeleteClick = { viewModel.deleteTrade(trade) },
+                                onClick = { onNavigateToDetails(trade.id) },
+                                onDeleteClick = { tradeToDelete = trade },
                                 showEntryCost = true,
                                 showPnl = true
                             )

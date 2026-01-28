@@ -34,6 +34,12 @@ import androidx.compose.ui.unit.dp
 import com.garrettrogers.pltracker.ui.components.DatePickerField
 import com.garrettrogers.pltracker.ui.components.TradeCard
 
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CloseTradeScreen(
@@ -42,6 +48,31 @@ fun CloseTradeScreen(
     onNavigateBack: () -> Unit
 ) {
     val trade by viewModel.trade.collectAsState()
+    var showDeleteDialog by remember { mutableStateOf(false) }
+
+    if (showDeleteDialog) {
+        AlertDialog(
+            onDismissRequest = { showDeleteDialog = false },
+            title = { Text("Delete Trade?") },
+            text = { Text("Are you sure you want to delete this active trade? This cannot be undone.") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        viewModel.deleteTrade(onNavigateBack)
+                        showDeleteDialog = false
+                    },
+                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
+                ) {
+                    Text("Delete")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
     
     Scaffold(
         topBar = {
@@ -110,7 +141,7 @@ fun CloseTradeScreen(
 
                 val deleteColor = MaterialTheme.colorScheme.error
                 androidx.compose.material3.OutlinedButton(
-                    onClick = { viewModel.deleteTrade(onNavigateBack) },
+                    onClick = { showDeleteDialog = true },
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.outlinedButtonColors(
                         contentColor = deleteColor
